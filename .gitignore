@@ -1,0 +1,10 @@
+/frontend/node_modules/
+/.idea/
+/.vscode/
+/dist/
+build/
+
+/backend/vendor/
+*.log
+*.tmp
+*.temp
