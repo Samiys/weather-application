@@ -55,9 +55,20 @@ docker-compose up --build
 
 The PHP backend will be available on http://localhost:5000 and the Vue.js frontend on http://localhost:4000.
 
-## 5. Access the Application
+## 5. Running Tests
+Run the PHPUnit tests using:
+
+```bash
+docker-compose up --build
+```
+If you want to run PHPUnit inside a Docker container, use this command:
+
+```bash
+docker-compose exec php-backend ./vendor/bin/phpunit --testdox tests/WeatherServiceTest.php
+```
+
+## 6. Access the Application
 
 Open the frontend at http://localhost:4000.
 
 Enter the latitude and longitude of your position and the app will display weather data for cities from the file, sorted by the smallest temperature spread.
-
