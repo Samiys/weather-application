@@ -13,9 +13,9 @@ class WeatherService
         $this->weatherProvider = $weatherProvider;
     }
 
-    public function getWeather()
+    public function getWeather(float $latitude, float $longitude): array
     {
-        //
+        return $this->weatherProvider->fetchWeatherByCoordinates($latitude, $longitude);
     }
 
 }
