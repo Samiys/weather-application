@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  php-backend:
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/var/www/html
+    networks:
+      - app-network
+
+  vue-frontend:
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    ports:
+      - "4000:8080"
+    volumes:
+      - ./frontend:/app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
