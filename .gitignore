@@ -5,6 +5,7 @@
 build/
 
 /backend/vendor/
+/backend/.env
 *.log
 *.tmp
 *.temp
