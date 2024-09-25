@@ -15,7 +15,18 @@ $weatherProvider = new OpenWeatherProvider();
 $weatherService = new WeatherService($weatherProvider);
 $weatherController = new WeatherController($weatherService);
 
-$latitude = 50.5859482420135000;
-$longitude = 8.6730142590698300;
+if (isset($_GET['lat'], $_GET['lon'])) {
+    $latitude = (float)$_GET['lat'];
+    $longitude = (float)$_GET['lon'];
+    try {
+        $cities = $weatherController->showWeatherData($latitude, $longitude);
+        echo json_encode($cities, JSON_THROW_ON_ERROR);
+    } catch (JsonException $e) {
+        http_response_code(500);
+        echo json_encode(['error' => $e->getMessage()], JSON_THROW_ON_ERROR);
+    }
+} else {
+    http_response_code(400);
+    echo json_encode(['error' => 'Invalid request. Please provide latitude and longitude.'], JSON_THROW_ON_ERROR);
+}
 
-$cities = $weatherController->showWeatherData($latitude, $longitude);
