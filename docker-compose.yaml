@@ -23,6 +23,16 @@ services:
     networks:
       - app-network
 
+  phpunit-tester:
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    volumes:
+      - ./backend:/var/www/html
+    entrypoint: ["vendor/bin/phpunit", "--testdox"]
+    networks:
+      - app-network
+
 networks:
   app-network:
     driver: bridge
