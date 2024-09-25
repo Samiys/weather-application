@@ -3,9 +3,11 @@
 /.vscode/
 /dist/
 build/
+/vendor/
 
 /backend/vendor/
 /backend/.env
+/frontend/.env
 *.log
 *.tmp
 *.temp
