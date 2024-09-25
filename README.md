@@ -59,7 +59,8 @@ The PHP backend will be available on http://localhost:5000 and the Vue.js fronte
 Run the PHPUnit tests using:
 
 ```bash
-docker-compose up --build
+cd backend
+./vendor/bin/phpunit --testdox tests/WeatherServiceTest.php
 ```
 If you want to run PHPUnit inside a Docker container, use this command:
 
