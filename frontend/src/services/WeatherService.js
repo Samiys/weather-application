@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:2000/';
+const API_URL = 'http://localhost:5000/';
 
 class WeatherService {
     async getWeatherData(latitude, longitude) {
